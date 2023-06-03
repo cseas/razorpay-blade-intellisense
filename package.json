@@ -2,6 +2,7 @@
   "name": "razorpay-blade-intellisense",
   "displayName": "Razorpay Blade IntelliSense",
   "description": "Razorpay Blade IntelliSense enhances the Blade development experience by providing Visual Studio Code users with detailed docs for tokens within the editor.",
+  "repository": "https://github.com/cseas/razorpay-blade-intellisense",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.78.0"
