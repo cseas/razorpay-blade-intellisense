@@ -7,63 +7,47 @@ import {
   type Position,
   type ExtensionContext,
   type CompletionItemProvider,
-  type CancellationToken,
 } from "vscode";
 
-// class BladeCompletionItemProvider implements CompletionItemProvider {
-//   public provideCompletionItems(
-//     document: TextDocument,
-//     position: Position,
-//     token: CancellationToken
-//   ): Thenable<CompletionItem[]>
-//   > {
-// 	}
-// }
+/**
+ * Gets all text until the cursor position and checks if it reads `spacing.`
+ * If yes, triggers IntelliSense suggestions for available Blade Spacing tokens.
+ */
+class SpacingCompletionItemProvider implements CompletionItemProvider {
+  public provideCompletionItems(doc: TextDocument, pos: Position) {
+    const linePrefix = doc.lineAt(pos).text.slice(0, pos.character);
+    if (!linePrefix.endsWith("spacing.")) {
+      return undefined;
+    }
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+    let completionItems = [];
+    const tokenValues = [0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56];
+
+    // Add completion suggestions
+    for (let i = 0; i < 12; i++) {
+      completionItems.push(
+        new CompletionItem(String(i), CompletionItemKind.Value)
+      );
+    }
+
+    // Add token values as details
+    for (let i = 0; i < 12; i++) {
+      completionItems[i].detail = `${tokenValues[i]}px`;
+    }
+
+    return completionItems;
+  }
+}
+
+// This method is called when the extension is activated.
+// Activation events are listed in package.json
 export function activate(context: ExtensionContext) {
-  // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
-  console.log(
-    'Congratulations, your extension "razorpay-blade-intellisense" is now active!'
-  );
-
-  const provider = languages.registerCompletionItemProvider(
+  const disposable = languages.registerCompletionItemProvider(
     // https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers
     "typescriptreact",
-    {
-      // get all text until the `position` and check if it reads `spacing.`
-      // and if so then trigger suggestions for available tokens.
-      provideCompletionItems(doc: TextDocument, pos: Position) {
-        const linePrefix = doc.lineAt(pos).text.substr(0, pos.character);
-        if (!linePrefix.endsWith("spacing.")) {
-          return undefined;
-        }
-
-        let completionItems = [];
-        const tokenValues = [0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56];
-
-        // Add completion suggestions
-        for (let i = 0; i < 12; i++) {
-          completionItems.push(
-            new CompletionItem(String(i), CompletionItemKind.Value)
-          );
-        }
-
-        // Add token values as details
-        for (let i = 0; i < 12; i++) {
-          completionItems[i].detail = `${tokenValues[i]}px`;
-        }
-
-        return completionItems;
-      },
-    },
+    new SpacingCompletionItemProvider(),
     "." // triggered whenever a '.' is being typed
   );
 
-  context.subscriptions.push(provider);
+  context.subscriptions.push(disposable);
 }
-
-// This method is called when your extension is deactivated
-export function deactivate() {}
