@@ -3,7 +3,7 @@
   "displayName": "Razorpay Blade IntelliSense",
   "description": "Razorpay Blade IntelliSense enhances the Blade development experience by providing Visual Studio Code users with detailed docs for tokens within the editor.",
   "repository": "https://github.com/cseas/razorpay-blade-intellisense",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "engines": {
     "vscode": "^1.78.0"
   },
@@ -20,7 +20,8 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "change:add": "changeset add"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
