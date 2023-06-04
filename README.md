@@ -1,4 +1,4 @@
-# razorpay-blade-intellisense README
+# razorpay-blade-intellisense
 
 Razorpay Blade IntelliSense enhances the Blade development experience by providing Visual Studio Code users with detailed docs for tokens within the editor.
 
