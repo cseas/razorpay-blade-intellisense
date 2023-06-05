@@ -11,10 +11,11 @@
     "vscode": "^1.78.0"
   },
   "categories": [
-    "Other"
+    "Linters"
   ],
   "activationEvents": [
-    "onLanguage:typescriptreact"
+    "onLanguage:typescriptreact",
+    "onLanguage:typescript"
   ],
   "main": "./out/extension.js",
   "scripts": {
@@ -43,5 +44,13 @@
   },
   "publisher": "cseas",
   "author": "Abhijeet Singh",
-  "icon": "./docs/images/razorpay-logo.png"
+  "icon": "./docs/images/razorpay-logo.png",
+  "keywords": [
+    "razorpay",
+    "blade",
+    "typescript",
+    "intellisense",
+    "autocomplete",
+    "vscode"
+  ]
 }
