@@ -36,8 +36,8 @@ export function getColorMap(): ColorMap {
   const map: ColorMap = new Map();
 
   map.set(
-    /action\.icon\.link\.default/g,
-    createColorObject("hsla(213, 89%, 56%, 1)")
+    /surface\.background\.level1\.lowContrast/g,
+    createColorObject("hsla(220, 30%, 96%, 1)")
   );
 
   map.set(
@@ -48,6 +48,16 @@ export function getColorMap(): ColorMap {
   map.set(
     /surface\.background\.level2\.lowContrast/g,
     createColorObject("hsla(0, 0%, 100%, 1)")
+  );
+
+  map.set(
+    /surface\.background\.level2\.highContrast/g,
+    createColorObject("hsla(216, 44%, 23%, 1)")
+  );
+
+  map.set(
+    /action\.icon\.link\.default/g,
+    createColorObject("hsla(213, 89%, 56%, 1)")
   );
 
   return map;
