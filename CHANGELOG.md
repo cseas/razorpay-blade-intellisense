@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.0.3
+
+### Patch Changes
+
+- [#10](https://github.com/cseas/razorpay-blade-intellisense/pull/10) [`e8b7afd`](https://github.com/cseas/razorpay-blade-intellisense/commit/e8b7afd0cbd1ba7eb6bbb438e3a777890a433c29) Thanks [@cseas](https://github.com/cseas)! - feat: add support for more colors
+
+  - added 4 Surface and 5 Action colors
+
 ## 0.0.2
 
 ### Patch Changes
