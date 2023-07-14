@@ -35,6 +35,10 @@ function createColorObject(colorValue: string): ColorObject {
 export function getColorMap(): ColorMap {
   const map: ColorMap = new Map();
 
+  /***************
+   * Surface
+   ***************/
+
   map.set(
     /surface\.background\.level1\.lowContrast/g,
     createColorObject("hsla(220, 30%, 96%, 1)")
@@ -56,9 +60,74 @@ export function getColorMap(): ColorMap {
   );
 
   map.set(
+    /surface\.background\.level3\.lowContrast/g,
+    createColorObject("hsla(220, 27%, 98%, 1)")
+  );
+
+  map.set(
+    /surface\.background\.level3\.highContrast/g,
+    createColorObject("hsla(216, 33%, 29%, 1)")
+  );
+
+  map.set(
+    /surface\.border\.normal\.lowContrast/g,
+    createColorObject("hsla(216, 15%, 54%, 0.18)")
+  );
+
+  map.set(
+    /surface\.border\.normal\.highContrast/g,
+    createColorObject("hsla(216, 15%, 54%, 0.18)")
+  );
+
+  /***************
+   * Overlay
+   ***************/
+
+  /***************
+   * Brand
+   ***************/
+
+  /***************
+   * Feedback
+   ***************/
+
+  /***************
+   * Action
+   ***************/
+
+  map.set(
     /action\.icon\.link\.default/g,
     createColorObject("hsla(213, 89%, 56%, 1)")
   );
+
+  map.set(
+    /action\.icon\.link\.hover/g,
+    createColorObject("hsla(218, 89%, 51%, 1)")
+  );
+
+  map.set(
+    /action\.icon\.link\.focus/g,
+    createColorObject("hsla(223, 95%, 48%, 1)")
+  );
+
+  map.set(
+    /action\.icon\.link\.active/g,
+    createColorObject("hsla(223, 95%, 48%, 1)")
+  );
+
+  map.set(
+    /action\.icon\.link\.disabled/g,
+    createColorObject("hsla(218, 19%, 81%, 1)")
+  );
+
+  map.set(
+    /action\.icon\.link\.visited/g,
+    createColorObject("hsla(268, 100%, 79%, 1)")
+  );
+
+  /***************
+   * Badge
+   ***************/
 
   return map;
 }
